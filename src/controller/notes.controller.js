@@ -4,19 +4,20 @@ async function newNotes(req , res ){
     const { title , desc } = req.body;
     const newNote = await notesModel.create({
         title,
-        desc
+        desc,
+        userId : req.user.id
     });
     res.status(200).json({
-        message : "Note added successfully "
+        message : "Note added successfully ",
+        user : newNote.userId
     })
 }
 
 async function getNotes( req , res ){
-    const notes = await notesModel.find();
+    const notes = await notesModel.find({userId : req.user.id});
     res.status(200).json({
-        notes,
+        notes
     })
-
 }
 
 async function delNotes( req , res ){
@@ -24,7 +25,8 @@ async function delNotes( req , res ){
         const id = req.params.id;
         console.log(id);
         const deleted = await notesModel.findOneAndDelete({
-            _id : id
+            _id : id,
+            userId : req.user.id
         });
 
         if(!deleted){
@@ -46,7 +48,7 @@ async function delNotes( req , res ){
 }
 
 async function clearNotes(req , res){
-    const deleted = await notesModel.deleteMany({});
+    const deleted = await notesModel.deleteMany({userId : req.user.id});
     if(!deleted){
         return res.status(404).json({
             message : "Notes empty"

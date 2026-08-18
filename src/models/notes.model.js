@@ -7,6 +7,11 @@ const notesSchema = new mongoose.Schema({
     desc : {
         type : String,
 
+    },
+    userId : {
+        type : mongoose.Schema.Types.ObjectId,
+        role : "user",
+        required : true
     }
 },{timestamps : true}) 
 const notes = mongoose.model("notes" , notesSchema) ;
