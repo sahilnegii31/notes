@@ -6,9 +6,9 @@ import Home from './components/Home'
 import Footer from './components/Footer'
 import axios from 'axios';
 
-const [notes, setnotes] = useState([]);
 
 const App = () => {
+  const [notes, setnotes] = useState([]);
 
   const uploadNotes = async (message)=>{
     const response = await axios.post("http:localhost:3000/api/notes/newnotes" , message );
@@ -16,11 +16,7 @@ const App = () => {
     return alert("Note added successfully");
   }
 
-  const getnotes = async () => {
-    const response = await axios.get("http:localhost:3000/api/notes/getnotes");
-    console.log(response);
-    setnotes(...notes , response);
-  }
+  
 
   const delnotes = async (id) => {
     const response = await axios.delete(`http:localhost:3000/api/notes/delnotes/${id}`);
@@ -31,6 +27,7 @@ const App = () => {
     <div>
       <Navbar />
       <Home />
+      <Login />
       <Footer />
     </div>
   )

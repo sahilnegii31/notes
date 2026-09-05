@@ -4,7 +4,7 @@ import Card from './Card'
 const Notes = () => {
   const [notes, setnotes] = useState([]);
   const getnotes = async () => {
-      const response = await axios.get("http:localhost:3000/api/notes/getnotes");
+      const response = await axios.get("http://localhost:3000/api/notes/getnotes");
       console.log(response);
       setnotes(...notes , response);
     }

@@ -7,7 +7,7 @@ async function registerUser(req , res){
         const {username , password} = req.body ;
         const hashed = await bcrypt.hash(password, 10);
         
-        const checkUser = await userModel.find({username : username});
+        const checkUser = await userModel.findOne({username : username});
         if(checkUser){
             return res.status(401).json({
                 message : "User already Exist"
