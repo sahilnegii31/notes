@@ -163,7 +163,7 @@ const Home = ({ setCurrentPage, isLoggedIn }) => {
                 </p>
               </div>
 
-              {/* Mock Checklist / Tags */}
+
               <div className="pl-2 flex flex-col gap-2 pt-1">
                 <div className="flex items-center gap-2 text-xs text-zinc-300">
                   <span className="text-amber-400 font-bold">✓</span>
@@ -230,15 +230,14 @@ const Home = ({ setCurrentPage, isLoggedIn }) => {
               key={index}
               className="group relative rounded-2xl bg-zinc-950/70 p-6 border border-amber-500/20 hover:border-amber-400/60 transition-all duration-300 hover:shadow-[0_10px_35px_rgba(245,158,11,0.12)] hover:-translate-y-1 flex flex-col gap-4 overflow-hidden"
             >
-              {/* Subtle gold top shimmer line */}
+
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-400/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-              {/* Icon Container */}
+
               <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-2xl group-hover:scale-110 group-hover:bg-amber-500/20 transition-all duration-300">
                 {item.icon}
               </div>
 
-              {/* Content */}
               <div>
                 <h3 className="font-luxury text-lg font-bold text-zinc-100 group-hover:text-amber-300 transition-colors">
                   {item.title}
